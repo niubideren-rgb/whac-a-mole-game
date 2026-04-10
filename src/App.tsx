@@ -10,6 +10,11 @@ import './index.css'
 type MoleType = 'normal' | 'golden' | null
 
 /**
+ * 定时器类型（兼容浏览器）
+ */
+type TimerId = ReturnType<typeof setTimeout>
+
+/**
  * 地鼠状态接口
  */
 interface Mole {
@@ -161,9 +166,9 @@ function App() {
   } = useSound()
   
   // 计时器引用
-  const gameTimerRef = useRef<NodeJS.Timeout | null>(null)
-  const moleTimerRef = useRef<NodeJS.Timeout | null>(null)
-  const hideTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const gameTimerRef = useRef<TimerId | null>(null)
+  const moleTimerRef = useRef<TimerId | null>(null)
+  const hideTimerRef = useRef<TimerId | null>(null)
 
   /**
    * 随机显示地鼠
